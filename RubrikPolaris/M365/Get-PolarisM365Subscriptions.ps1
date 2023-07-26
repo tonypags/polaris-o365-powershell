@@ -32,7 +32,7 @@ function Get-PolarisM365Subscriptions {
     effectiveSlaDomainId    : UNPROTECTED
     configuredSlaDomainId   : UNPROTECTED
     #>
-
+    [CmdletBinding()]
     param(
         [String]$Token = $global:RubrikPolarisConnection.accessToken,
         [String]$PolarisURL = $global:RubrikPolarisConnection.PolarisURL

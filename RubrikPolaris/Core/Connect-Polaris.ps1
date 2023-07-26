@@ -1,4 +1,4 @@
-function Connect-Polaris() {
+function Connect-Polaris {
     <#
     .SYNOPSIS
 
@@ -20,6 +20,8 @@ function Connect-Polaris() {
 
     PS> $token = Get-PolarisTokenServiceAccount
     #>
+    [CmdletBinding()]
+    param()
 
     Write-Information -Message "Info: Attempting to read the Service Account file located at ~/.rubrik/polaris-service-account.json "
     try {
