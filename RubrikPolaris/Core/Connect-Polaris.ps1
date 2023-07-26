@@ -45,15 +45,15 @@ function Connect-Polaris() {
 
     Write-Debug -Message "Determing if the Service Account file contains all required variables."
     $missingServiceAccount = @()
-    if ($serviceAccountFile.client_id -eq $null) {
+    if ($null -eq $serviceAccountFile.client_id) {
         $missingServiceAccount += "'client_id'"
     }
 
-    if ($serviceAccountFile.client_secret -eq $null) {
+    if ($null -eq $serviceAccountFile.client_secret) {
         $missingServiceAccount += "'client_secret'"
     }
 
-    if ($serviceAccountFile.access_token_uri -eq $null) {
+    if ($null -eq $serviceAccountFile.access_token_uri) {
         $missingServiceAccount += "'access_token_uri'"
     }
 
@@ -78,6 +78,7 @@ function Connect-Polaris() {
         accessToken      = $response.access_token;
         PolarisURL  = $polarisURL
     }
+    [void]$global:rubrikPolarisConnection
 
     Write-Information -Message "Info: Successfully connected to $polarisURL."
 
